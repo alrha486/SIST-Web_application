@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css font 연습</title>
+    <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet"> 
+    <style type = "text/css">
+        @font-face{
+            font-family: '나의 나눔체';
+            src:url('fonts/NanumGothic.eot');
+            src:url('fonts/NanumGothic.ttf');
+            src:url('fonts/NanumGothic.woff')
+        }
+        p{font-size: 2em;}
+        
+        p:nth-of-type(1){font-family: '맑은고딕';}
+        p:nth-of-type(2){font-family:
+        '굴림체'}
+        p:nth-of-type(3){font-family:
+            'Stylish', sans-serif}
+            p:nth-of-type(5){
+                font-variant: small-caps;
+                font-family:  'Stylish', sans-serif
+            }
+
+    </style>
+</head>
+<body>
+    <h1>css font 연습</h1>
+    <p>크롬의 기본 폰트</p>
+    <p>크롬의 기본 폰트</p>
+    <p>크롬의 기본 폰트</p>
+    <p>크롬의 기본 폰트</p>
+    <p>Hello,World</p>
+</body>
+</html>
