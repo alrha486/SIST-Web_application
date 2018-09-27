@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<title>변수</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script type="text/javascript">
+		// var a = 5;		var b = 6;		document.write(a+b);
+		// var array = [5,6,"leejinwoong",7,8,"hello"];
+		// document.write(array);
+		// document.write("<br>");
+		// document.write(Number.MIN_VALUE + "<br/>");
+		// document.write(Number.MAX_VALUE + "<br/>");
+		var student = {name:'한지민', address:'서울시 서대문구 월드컵북로',
+													getAge:function(){
+														return 24;
+													}
+												};
+		document.write('이름 : '+ student.name + '<br>');
+		document.write('나이 : '+ student.age + '<br>');
+		document.write('주소 : '+ student.address + '<br>'); 
+		document.write(typeof(student));
+		document.write('<br>');
+		var str = '\11';
+		document.write("str : " + parseInt(str));
+
+				// 5가지 DataType
+		// 1. 숫자형 : Number of Numeric
+		// 2. 문자형 : String 
+		// 3. 불린형 : Boolean : true, false
+		// 4. null
+		// 5. undefined
+	</script>
+</body>
+</html>
