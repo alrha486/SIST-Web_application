@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JavaScript 사용방법</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	input[type] {
+		background-color: yellow;
+	}
+	button{
+		background-color: cyan;
+	}
+	output{
+		font-size : 2em;
+		color : blue;
+	}
+</style>
+</head>
+<body>
+	Name : <input type="text" name="username" id="username"/><br />
+	Age : <input type="number" name="userage" id="userage" /><br />
+		<button onclick="myfunction()">Click Me!!</button>
+		<hr />
+		<output id="result"></output>
+		
+		<script type>
+			function myfunction(){
+				var username = document.getElementById("username").value;
+				var userage = document.getElementById("userage").value;
+				document.getElementsById('result').innerHtml = 
+				"안녕하세요 "+ username + "님은 " + userage + "살 이군요!";
+			}
+		</script>
+
+
+</body>
+</html>
