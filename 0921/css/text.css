@@ -1,0 +1,27 @@
+table{
+    width: 600px;
+}
+.aaa{
+    background-color: yellow;
+}
+td{
+    background-color: green;
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+h3{
+    text-align: right;
+}
+table,th,td{
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+tbody{
+    text-align: center;
+}
+ul{
+    background-color: gray;
+    text-align: center;
+}

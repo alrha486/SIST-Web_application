@@ -1,0 +1,31 @@
+table,tr,td,th{
+    margin-left : auto;
+    margin-right : auto;
+    width : 500;
+    background-color:  #ADD8E6;
+    border-style: solid;
+    border-color : skyblue;
+}
+
+h1{
+    text-align: center;
+}
+form{
+    align-content: center;
+}
+.id{
+    background-color: #ffdead
+}
+span{
+
+  font-weight: 900;
+  font-size:20px;
+  color : yellow;
+}
+table>tfoot>tr>td{
+    text-align: center;
+    background-color: #ffdead;
+}
+body{
+    background-color: beige;
+}
