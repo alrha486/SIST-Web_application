@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Operator Demo</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		a[href$='net']:hover{  
+			color:red; font-size:3em;
+		}
+	</style>
+</head>
+<body>
+<h1>검색엔진</h1>
+<ul>
+	<li><a href="https://www.naver.com"  title = "네이버" target ="_blank">네이버</a></li>
+	<!--기본형의 a링크 -->
+	<li><a href="javascript:void(document.body.style.backgroundColor='white')" title = "구글">구글</a></li>
+	<!--클릭이벤트 void 안에 -->
+	<li><a href="javascript:void(document.body.style.backgroundColor='yellow')" title = "구글">구글</a></li>
+	<!--클릭이벤트 void 안에-->
+	<li><a id = 'aaa' href="javascript:void(document.getElementById('aaa').style.fontSize='3em');" title = "구글">구글</a></li> <!--클릭이벤트 글자크기-->
+	<li><a href="https://www.daum.net" title = "다음카카오" target ="_blank">다음카카오</a></li>
+  <!--기본형의 a링크 -->
+	<li><a href="javascript:void(0)" title = "네이트">네이트</a></li>
+	<!--void 안에 0을 넣을 시 아무것도 일어나지 않음-->
+	<li><a href="#" title = "네이트">네이트</a></li>
+	<!--이것 또한 아무것도 일어나지않음-->
+</ul>
+</body>
+</html>
