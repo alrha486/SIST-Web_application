@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loop Demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	/*var array = ['apple','mango','orange','peach','grape','lemon'];
+	for(var idx in array){
+		document.write(array[idx] + '&nbsp&nbsp');
+	}*/
+	var car = {name :'Sonata', price : 25000000, maker : 'Hyundai'};
+	for(var str in car){  
+		// document.write(str + '>>>>' + str + '<br>');
+		document.write(str + '>>>>' + car[str] + '<br>');
+	} // for in 구문의 값을 뽑는게 아니라 멤버를 뽑음
+	document.write('<hr>');
+	delete car.price;
+	for(var str in car){  
+		// document.write(str + '>>>>' + str + '<br>');
+		document.write(str + '>>>>' + car[str] + '<br>');
+	}
+</script>
+</body>
+</html>

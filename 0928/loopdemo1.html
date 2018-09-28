@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loop Demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+var count = 0; 
+var line =1;
+
+		for(var i =65; i<=90; i++){
+			if(line % 2 ==0){
+		document.write(String.fromCharCode(i+32));		
+		document.write('&nbsp&nbsp&nbsp&nbsp');
+			}
+			else{
+		document.write(String.fromCharCode(i));
+		document.write('&nbsp&nbsp&nbsp&nbsp');
+	}
+		count ++;
+		if(count % 5 == 0){
+			document.write("<br>")
+			line ++;
+		}
+	}
+</script>
+</body>
+</html>

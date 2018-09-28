@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>object demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var str = "hello,World";
+	document.write(typeof(str) + '<br>');
+
+	var str1 = new String("hello,World");
+	document.write(typeof(str1) + '<br>');
+
+	var str2 = String("hello,World");
+	document.write(typeof(str2) + '<br>');	
+
+	var str3 = str1.valueOf(); // Object 를 promitive type으로 변환
+	document.write(typeof(str3) + '<br>');
+
+	var str4 = new String(str3); // primitive type을 Object로 변환
+	document.write(typeof(str4) + '<br><hr>');
+
+	var num = 5; 
+	document.write(typeof(num) + '<br>');
+	var num1 = new Number(num);
+	document.write(typeof(num1) + '<br>');
+	var num2 = num1.valueOf();
+	document.write(typeof(num2) + '<br>');
+
+
+</script>
+</body>
+</html>

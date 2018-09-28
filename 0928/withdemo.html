@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>With Demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	var car = {name:'Canival', price:30000000, maker:'Kia'};
+	with(car){
+		var a = document.write(name + '<br>');
+		document.write(price + '<br>');
+		document.write(maker + '<br>');
+	}
+	document.write(a);
+</script>
+</body>
+</html>

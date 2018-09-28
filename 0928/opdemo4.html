@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Operator Demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<script type="text/javascript">
+	/*var su = -128;
+	document.write('su = ' + su.toString(2) + '<br>');
+	document.write('su >> 3 = ' + (su >> 3).toString(2) + '<br>');
+	document.write('su >>> 3 = ' + (su >>> 3).toString(2) + '<br>');*/
+/*
+	document.write("3 == '3' >> " + (3=='3') + '<br>'); // == 값비교
+	document.write("3 === '3' >> " + (3==='3') + '<br>'); // == 값 뿐만아니라 타입도 비교
+
+	var su;
+	var num = null;
+	document.write("null == undefinded --->" + (su == num) + '<br>');
+	document.write("null === undefinded --->" + (su === num) + '<br>');
+	document.write('<hr>');
+
+	var car = {'name' : 'Martiz' , maker : 'Daewoo'};
+	document.write((name in car) + '<br>');
+	document.write(('name' in car) + '<br><hr>');
+
+  var array = ['apple', 'lemon','grape'];
+  document.write((0 in array) + '<br>');
+  document.write((3 in array) + '<br><hr>');*/
+
+  var str = 'Hello,World'; //String type
+  var str1 = new String("Hello,World"); // object type
+  var array = ['apple', 'lemon','grape']; // object type
+  var car = {'name' : 'Martiz' , maker : 'Daewoo'}; // object type
+
+  car = array;
+  if(typeof(car) == 'object' && car instanceof Array) document.write('true' + '<br>');
+  else document.write('false' + '<br>');
+
+  
+</script>
+</body>
+</html>
