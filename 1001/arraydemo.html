@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>array object demo</title>
+	<meta name="name" content="content">
+</head>
+<body>
+<script type="text/javascript">
+	// var array = new Array();
+	// array[0] = "Apple";
+	// array[1] = "Mango";
+	// array[2] = "Grape";
+	// array[3] = "Pineapple";
+
+	// document.write(array.join('<hr>'));
+	var array = [];
+	array.push('Java');
+	array.unshift('C-language');
+	array.push('C#');
+	array.unshift('Cobol');
+	document.write(array + '<hr>');
+/*
+splice() : 3가지 , insert, remove, replace
+1. insert : howmany --> 0
+2. remove : howmany --> 0
+3. replace : howmany <= item의 개수
+*/
+	array.splice(1,2,'mango','banana');
+	document.write(array);
+	// // document.write(array.pop() + '<hr>');
+	// document.write(array.slice(1,3) + '<hr>');
+	// document.write(array.length + '<hr>');
+</script>
+</body>
+</html>

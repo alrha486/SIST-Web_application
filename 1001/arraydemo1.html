@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>array object demo</title>
+	<meta name="name" content="content">
+	<script type="text/javascript">
+		var Car = function(name, price, maker){
+			this.name = name;
+			this.price = price;
+			this.maker = maker;
+			this.toString = function(){
+				document.write('<p>' + this.name + "(" + this.price.toLocaleString() + ")" + this.maker + "</p>");
+			}
+		}
+	</script>
+</head>
+<body>
+<script type="text/javascript">
+	var array = new Array();
+	var sonata = new Car('Sonata',25000000, 'Hyundai');
+	array.push(sonata);
+	array.push(new Car('Carnival',30000000,'Kia'));
+	array.push(new Car('Martiz',10000000,'Daewoo'));
+	document.write(array)
+	// for(var i=0; i<array.length; i++){
+	// 	document.write(array[i].toString());	
+	// }
+	
+
+</script>
+</body>
+</html>
