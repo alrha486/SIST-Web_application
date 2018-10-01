@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>regexp demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+
+<!-- 	// var str = "The rain in SPAIN stays mainly in the plain";
+	// var regexp = /ain/ig;
+	// // document.write(str.match(regexp)); // match : 일치하는 문자열 찾기
+	// document.write(str.replace(regexp,'abcd')); -->
+	Email : <input type="text" id="useremail">
+	<button type="button" onclick ="check()">Check Email </button>
+	<div> 결과 : <output id = "result"></output></div>
+
+<script type="text/javascript">
+	function check(){
+		var emailregexp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	var useremail = document.getElementById('useremail').value;
+	var str = null;
+	if(emailregexp.exec(useremail)){ // 제대로 입력한 경우
+		str = "<span style='color:green; font-size:1.5em;'>Good Job</span>";
+	}else{ // 제대로 입력하지 않은 경우
+		str = "<span style='color:red; font-size:1.5em;'>Invalid Email</span>";
+	}
+	document.getElementById('result').innerHTML = str;
+}
+</script>
+
+</body>
+</html>

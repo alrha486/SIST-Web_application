@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objext Demo</title>
+	<script type="text/javascript">
+		var telephone = { // 객체만들 시 리터럴을 만들 땐 (=) 대신 (:) 사용
+			gubun : null, // 지역변수로 사용하기위해 var선언
+			tel : null, 
+			irum : null,
+			amount : null, // 통화량
+			gibon : null, // 기본요금
+			fee : null, // 통화료
+			tax : null,
+			sum : null,
+			setGibon : function(){
+				switch(this.gubun) {
+					case 1 : this.gibon = 6000; break;
+					case 2 : this.gibon = 4800; break;
+					case 3 : this.gibon = 3000; break;
+			}	},
+			setFee : function(){ this.fee = this.amount * 12; },
+			setTax : function(){ this.tax = (this.gibon + this.fee) * 0.1; },
+			setSum : function(){ this.sum = this.gibon + this.fee + this.tax; },
+
+			toString : function(){ 
+				document.write('<ul>');
+				for(var property in this){
+					if(typeof this[property] != 'function'){
+						document.write('<li>' + property + '--->' + this[property] + '</li>');
+					}
+				}
+				document.write('</ul>'); 
+			}
+};
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+		////2   422-5123   박은지   1084
+		telephone.gubun = 2;
+		telephone.tel = '422-5123';
+		telephone.irum = '박은지';
+		telephone.amount = 1084;
+		telephone.setGibon();
+		telephone.setFee();
+		telephone.setTax();
+		telephone.setSum();
+		telephone.toString();
+	</script>
+
+</body>
+</html>
