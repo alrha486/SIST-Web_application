@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Closure Demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function outer(message){
+			function greeting(towhom){
+				document.write(towhom + ' ' + message + '<br>');
+			}
+			return greeting;
+		}
+		var jimin = 	outer('Good Morning');
+		jimin('Jimin'); // towhom 
+		var mija = outer('Good Evening');
+		mija('이미자!');
+
+	</script>
+</body>
+</html>

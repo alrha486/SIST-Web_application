@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Shopping Mall</title>
+   <script>
+      window.addEventListener('load', setup, false); // 실행이 될때 setup이라는 함수 호출
+      function setup(){ 
+         document.getElementById('btnAdd').addEventListener('click', add, false); 
+         // 화면의 담기 버튼 누르면 add 함수 호출
+         document.getElementById('btnRemove').addEventListener('click', remove, false);
+         // 화면의 빼기 버튼 투르면 remove 함수 호출
+         document.getElementById('txtAdd').addEventListener('keydown', preadd, false); 
+         // 담기 텍스트의 키를 누르면  preeadd 함수 호출 
+         document.getElementById('cart').addEventListener('change', myselect, false);
+         // 장바구니 텍스트를 클릭하면 myselect 화면 호출
+      }
+
+      function myselect(){
+         var idx = document.getElementById('cart').selectedIndex; // 장바구니의 선택된 인덱스를 변수에 저장
+         if(idx != 0){ // 0이 아니라면
+         document.getElementById('txtRemove').value = // 선 택된 인덱스를 빼기 텍스트랑 같게
+            document.getElementById('cart').options[idx].text;
+         }
+      }
+
+      function preadd(){
+      		if(event.keyCode == 13){ // 엔터의 코드값이 13이라면 add 함수 호출
+      			add()	;
+      		}
+      }
+      function add(){
+         var item = document.getElementById('txtAdd').value; // 추가 텍스트의 값을 변수에 저장
+         var option = document.createElement('option');   // option이라는 엘리먼트 생성
+         option.text = item;       // 추가텍스트의 값을 option의 텍스트에 저장
+         document.getElementById('cart').add(option); // 장바구니 텍스트에 option 값을 저장
+         document.getElementById('txtAdd').value=""; // 추가 후 텍스트 비워주기
+      }
+
+      function remove(){
+         if(document.getElementById('txtRemove').value) //문자열이 있으면 true
+         {
+            var idx = document.getElementById('cart').selectedIndex; 
+            // 장바구니의 선택된 인덱스를 idx변수에 저장
+            document.getElementById('cart').remove(idx);
+            // 장바구니의 텍스트(인덱스)를 삭제
+            document.getElementById('txtRemove').value="";
+            // 삭제 후 삭제텍스트를 비워주기
+         }
+      }
+   </script>
+</head>
+<body>
+   <div>
+      <label>담기 : </label>
+      <input type="text" id="txtAdd"> 
+      <input type="button" value="담기" id="btnAdd" />
+   </div>
+   <div>
+      <select id="cart" size='10' style='width:250px'>
+         <option>--선택--</option>
+      </select>
+   </div>
+   <div>
+      <label>빼기 : </label>
+      <input type="text" id="txtRemove">
+      <input type="button" value="빼기" id="btnRemove" />
+   </div>
+</body>
+</html>

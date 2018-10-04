@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Closure demo</title>
+	<script type="text/javascript">
+		function Outer(whom){
+ 			function Inner(greeting){
+ 				document.write(greeting + whom);
+ 			}
+ 			return Inner;
+		}
+		var jimin = Outer('Jimin<br>');
+		jimin('Hello');
+		var miza = Outer('miza');
+		miza('HI ');
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

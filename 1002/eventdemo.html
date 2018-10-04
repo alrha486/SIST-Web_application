@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Event Demo</title>
+	<script type="text/javascript">
+		window.onload = setup;
+		
+		function setup(){
+			document.getElementsByTagName('button')[0].onclick = function(){
+				document.write(window.event.target);
+				// document.body.style.backgroundColor = 'yellow';
+			}
+			document.getElementsByTagName('button')[1].onclick = function(){
+				document.body.style.backgroundColor = 'cyan';
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<!-- Dom level 0, traditional Model -->
+	<button type= "button">Yellow</button>
+	<button type= "button">Cyan</button>
+
+	<!-- Dom level 0, inline Model -->
+	<!-- <button type= "button" onclick="change('yellow')">Yellow</button>
+	<button type= "button" onclick="change('cyan')">Cyan</button> -->
+
+</body>
+</html>
