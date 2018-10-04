@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Window Object Demo</title>
+	<script type="text/javascript">
+		var w = null;
+		window.onload = function(){
+			ps = document.getElementsByTagName('p');
+			for(var i =0; i<ps.length-1 ; i++){
+				ps[i].onclick = myopen;
+			}
+				ps[2].onclick = myclose;
+		}
+
+		function myopen(evt){
+			var feature = 'width=500,height=500,left=0,top=0';
+			switch(evt.target.innerHTML){
+				case '네이버' :
+					w = window.open('https://www.naver.com','_blank',feature); break;
+				case '구글' : 
+					w = window.open('https://www.google.com','_blank',feature); break;
+			}
+		}
+		function myclose(){
+			// w.close();
+			w.moveTo(10,10);
+			window.setTimeut(myclose,1000);
+		}
+	</script>
+</head>
+<body>
+	<h1>검색엔진</h1>
+	<p>네이버</p>
+	<p>구글</p>
+	<p>창닫기</p>
+</body>
+</html>
