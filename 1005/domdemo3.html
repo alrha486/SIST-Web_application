@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Dom Object Demo3</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var newP = document.createElement('p'); //<p></p>. p태그를 하나 만든 것 
+			var newText = document.createTextNode('이것은 자바스크립트에서 생성한 단락입니다.');
+			newP.appendChild(newText); // 부모입장에서 자식을 추가하는 것 
+			document.getElementsByTagName('body')[0].appendChild(newP);
+		} 
+	</script>
+</head>
+<body>
+	<h2>나는 헤드라인 태그</h2>
+</body>
+</html>

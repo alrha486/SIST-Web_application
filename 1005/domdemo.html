@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Dom Object Demo</title>
+	<script type="text/javascript">
+		window.onload = function(){ // onload : 로딩할 때가 아닌 로딩이 끝난 후 따라서 document의 구조를 다 알고있다.
+			// document.querySelector('#console').innerHTML = document.querySelectorAll('h1').innerHTML; 
+			//querySelector 는 id, name 등으로 검색할 수 있다.
+
+			var ps = document.getElementsByTagName('p');
+			// ps[2].innerHTML = '이것은 세번째 단락입니다.';
+
+			ps[1].onclick = function(){ // 2번째 p 태그 클릭시
+				var value = this.innerHTML; // 2번째 p태그의 innerHTML 값을 value변수에 저장
+				var str = '<span style="color : red; font-size:2em; ">'; 
+				str += value + '</span>'; 
+				document.getElementsByClassName('second')[0].innerHTML = str; // elements 이기때문에 [] 를 사용해 몇번째 인자인지 명시해줘야 함
+			}
+		}
+	</script>
+</head>
+<body>
+		<h1>Dom Object</h1>
+		<p>이것은 첫번째 단락입니다.</p>
+		<p class="second">이것은 두번째 단락입니다.</p>
+		<p id="console"></p>
+
+</body>
+</html>

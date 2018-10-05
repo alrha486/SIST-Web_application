@@ -1,0 +1,63 @@
+<!-- /*누가 : 정준오
+언제 : 2018 10 05
+왜 : 인덱스
+개발환경 : 윈도우8.1 , 서블라임텍스트
+*/
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>사원 관리프로그램</title>
+   <script src="script/sawon.js"></script>
+   <script src="script/main.js"></script>
+   <script src="script/input.js"></script>
+   <script src="script/calc.js"></script>
+   <script src="script/sort.js"></script>
+   <script src="script/output.js"></script>
+
+   <link rel="stylesheet" href="css/inputui.css">
+   
+</head>
+<body>
+   <h1>사원 관리프로그램</h1>
+   <p>*필수입력항목</p>
+   <hr/>
+   <form name="myform">
+   <table border="1">
+      <tbody>
+         <tr>
+            <th><label for="txtSabun">사번 :</label></th>
+            <td><input type="text" id="txtSabun" name="txtSabun">&nbsp;*&nbsp;</td>
+         </tr>
+                  <tr>
+            <th><label for="txtName">이름 :</label></th>
+            <td><input type="text" id="txtName" name="txtName">&nbsp;*&nbsp;</td>
+         </tr>
+                  <tr>
+            <th><label for="txtbase">기본급 :</label></th>
+            <td><input type="text" id="txtbase" name="txtbase">&nbsp;*&nbsp;</td>
+         </tr>
+                  <tr>
+            <th><label for="txtNt">야간수당 :</label></th>
+            <td><input type="text" id="txtNt" name="txtNt">&nbsp;*&nbsp;</td>
+         </tr>
+                  <tr>
+            <th><label for="txtFamily">가족수 :</label></th>
+            <td><input type="text" id="txtFamily" name="txtFamily">&nbsp;*&nbsp;</td>
+         </tr>
+
+      </tbody>
+   </table>      
+   <hr/>
+   <span>
+   <input type="button" id="btnAdd" name="btnAdd" value="입력하기">&nbsp;&nbsp;
+   <input type="button" id="btnCalc" name="btnCalc" value="계산하기">&nbsp;&nbsp;
+   <input type="button" id="btnSort" name="btnSort" value="정렬하기">&nbsp;&nbsp;
+   <input type="button" id="btnOutput" name="btnOutput" value="결과보기">&nbsp;&nbsp;
+</span>
+   </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+/*누가 : 김은서
+언제 : 2018 10 05
+왜 : 스타일
+개발환경 : 윈도우8.1 , 서블라임텍스트
+*/
+
+
+h1{
+   text-align: center; text-decoration: underline;
+}
+
+table {
+   border-color: white;
+   border-width: 1;
+   width:900px;
+
+   margin-left:auto;
+   margin-right:auto;
+}
+th{
+   background-color: navy;  color:#fff;
+}
+
+tr{
+   text-align: center;
+   background-color: yellow;
+   height: 40px;
+} 

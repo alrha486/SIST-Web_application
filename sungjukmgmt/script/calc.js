@@ -7,9 +7,9 @@ function calc(){
 		var avg = (sum/4);
 		
 		var grade = (avg <= 100 && avg >= 90) ? 'A' :
-										(avg < 90 && avg >= 80) ? 'B' :
-										(avg < 80 && avg >= 70) ? 'C' :
-										(avg < 70 && avg >= 60) ? 'D' : 'F';
+		(avg < 90 && avg >= 80) ? 'B' :
+		(avg < 80 && avg >= 70) ? 'C' :
+		(avg < 70 && avg >= 60) ? 'D' : 'F';
 
 		std.setSum(sum);
 		std.setAvg(avg);
