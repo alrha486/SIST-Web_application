@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Digital Watch</title>
+	<script type="text/javascript">
+			window.onload = init;
+			var timeoutid = null;
+			function init(){
+				document.getElementById('start').addEventListener('click', start);
+				document.getElementById('stop').addEventListener('click', stop);
+					
+						
+			}
+
+			function start(){
+				var now = new Date();
+				document.getElementById('myclock').innerHTML = now.toLocaleString();
+			timeoutid =	window.setTimeout(start, 1000); // 첫번쨰 인자 = 콜백 할 함수명
+			}
+
+			function stop(){
+				window.clearTimeout(timeoutid);
+			}
+
+	</script>
+</head>
+<body>
+		<<button type="button" id ="start">시작</button>
+		<<button type="button" id ="stop">중지</button>
+		<output id="myclock"></output>
+</body>
+</html>

@@ -13,5 +13,4 @@ function init(){
 	document.getElementById('btnOutput').addEventListener('click',output); // 출력버튼 누르면 output함수 호출
 	document.getElementById('btnSort').addEventListener('click',sort); // 출력버튼 누르면 output함수 호출
 
-
 }
