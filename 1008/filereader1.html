@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FileReader Demo with Drag & Drop</title>
+	<style type="text/css">
+		div#mydiv{
+			width:200px; height:200px;
+			border : 1px solid #000;
+		}
+		div#filecontents{
+			width:800px; height:500px; margin:10px;
+			overflow: scroll;
+			border : 1px solid #000;
+		}
+	</style>
+	<script>
+		window.addEventListener('load', init);
+		function init(){
+			document.querySelector('#mydiv').addEventListener('dragover', dragover);
+			document.querySelector('#mydiv').addEventListener('drop', drop);
+		}
+		function dragover(evt){
+			evt.preventDefault();
+			this.style.border = '3px dashed red';
+		}
+		function isPreview(file){
+			if(file.type.match(/^text/g)) return true;
+			else if(file.type.match(/^image/g)) return true;
+			else if(file.type.match(/^video/g)) return true;
+			else if(file.type.match(/^audio/g)) return true;
+			else if(file.name.substring(file.name.indexOf('.')) == '.dat') return true;
+			else return false;
+		}
+		function drop(evt){
+			evt.preventDefault();
+			var file = evt.dataTransfer.files[0];
+			if(!isPreview(file)){
+				document.querySelector('#msg').innerHTML = "<span style='color:red'>미리보기가 지원되지 않는 파일입니다.</span>";
+			}
+			var fr = new FileReader();
+			fr.addEventListener('load', function(evt){
+				var contents = null;
+				if(file.type.match(/^text/g)){   //text 파일이라면
+					contents = fr.result;
+					contents = contents.replace(/</g, '&lt;');
+					contents = contents.replace(/>/g, '&gt;');
+					contents = contents.replace(/\n/g, '<br />');
+					document.querySelector('#filecontents').innerHTML = contents;
+				}else if(file.type.match(/^image/g)){   //이미지 파일이라면
+					if(document.querySelector('#filecontents').childNodes.length){
+						document.querySelector('#filecontents').removeChild(document.querySelector('#filecontents').firstChild);
+					}
+					contents = fr.result;
+					var imgElement = document.createElement('img');    //<img>
+					imgElement.setAttribute('src', contents);   //<img src='....jpg />
+					//imgElement.setAttribute('width', '100px');
+					//imgElement.setAttribute('height', '150px');
+					document.querySelector('#filecontents').appendChild(imgElement);
+				}else if(file.type.match(/^video/g)){
+					if(document.querySelector('#filecontents').childNodes.length){
+						document.querySelector('#filecontents').removeChild(document.querySelector('#filecontents').firstChild);
+					}
+					var videoElement = document.createElement('video');
+					videoElement.setAttribute('src', fr.result);
+					videoElement.setAttribute('controls' ,'controls');
+					videoElement.setAttribute('autoplay' ,'autoplay');
+					videoElement.setAttribute('width', '100%');
+					videoElement.setAttribute('height', '300px');
+					document.querySelector('#filecontents').appendChild(videoElement);
+				}else if(file.type.match(/^audio/g)){
+					if(document.querySelector('#filecontents').childNodes.length){
+						document.querySelector('#filecontents').removeChild(document.querySelector('#filecontents').firstChild);
+					}
+					var audioElement = document.createElement('audio');
+					audioElement.setAttribute('src', fr.result);
+					audioElement.setAttribute('controls' ,'controls');
+					audioElement.setAttribute('autoplay' ,'autoplay');
+					document.querySelector('#filecontents').appendChild(audioElement);
+				}
+			}, false);
+			if(file.type.match(/^text/g) || file.name.substring(file.name.indexOf('.')) == '.dat')
+				fr.readAsText(file);
+			else if(file.type.match(/^image/g) || 
+					file.type.match(/^video/g) || file.type.match(/^audio/g)){ 
+				fr.readAsDataURL(file);
+			}
+			this.style.border = '';
+		}
+	</script>
+</head>
+<body>
+	<h3>박스안으로 파일을 드래그해 주세요. </h3>
+	<p>Message : <output id='msg'></output></p>
+	<div id='mydiv'></div>
+	<div id="filecontents"></div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>File Api Demo and Drag & Drop</title>
+	<style type="text/css">
+		div {
+			width : 300px; height : 300px; border : 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load',setup,false);
+		function setup(){
+			document.querySelector('#mydiv').addEventListener('dragenter',dragenter,false);
+			document.querySelector('#mydiv').addEventListener('dragover',dragover,false);
+			document.querySelector('#mydiv').addEventListener('drop',drop,false);
+		}
+		function dragenter(evt){ // 드래그가 들어왔다면
+			this.style.border = '3px dashed red';
+		}
+		function dragover(evt){ // 드래그 오버가 발생하면
+			if(evt.preventDefault) evt.preventDefault(); 
+			if(evt.stopPropagation) evt.stopPropagation();
+			else return false;
+		}
+
+		function drop(evt){
+			evt.preventDefault(); // drop 한 파일이 실행 방지
+			
+			var str = "";
+			var files = evt.dataTransfer.files; // 드래그한 파일들 
+			for(var i=0; i<files.length; i++){ 
+				str += '<h3>' + (i+1) + '번째 파일 정보</h3>';
+				str += '<ul>';
+				for(var property in files[i]){ // for in 문 >>> 키 : 값 인 배열을 반복할 때 사용
+					
+					if(property == 'size'){
+						str += '<li>' + property + ' : ' + files[i].property + 'bytes </li>'; 
+					}
+
+					else if(property == 'lastModified'){
+						var cdate = new Date(files[i][property]);
+						str += '<li>' + property + ' : ' + cdate.toLocaleString() + '</li>';
+					}
+
+					else if(property != 'webkitRelativePath' && typeof files[i][property] != 'function'
+							&& property != 'lastModifiedDate'){
+						str += '<li>' + property + ' : ' + files[i][property] + '</li>';
+					}
+
+				} // for문 끝 
+
+				if(files[i].type.match(/^text/)){
+						str += '<li>미리보기 지원 가능 파일입니다.</li>'; 
+					}
+					else{
+						str += '<li>미리보기 지원 불가능 파일입니다.</li>';  
+					}
+				str += '</ul>'; 
+			}
+			document.querySelector('#fileinfo').innerHTML = str;
+
+		}// dragover 끝 
+
+	</script>
+</head>
+<body>
+	<h2>박스 안으로 파일을 드래그 해주세요.</h2>
+	<div id="mydiv">
+	</div>
+	<hr>
+	<output id="fileinfo"></output>
+</body>
+</html>

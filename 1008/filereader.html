@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>File Reader API Demo</title>
+	<style type="text/css">
+		div#filecontents {
+				width: 70%; height: 50%; scroll-behavior: auto;
+				border : 1px solid black;
+		}
+	</style>
+	<script type="text/javascript">
+		window.addEventListener('load',setup);
+		function setup(){
+			document.querySelector('#myfile').addEventListener('change',mychange);
+		}
+
+		function isPreview(file){ // 넘어온 파일이 읽을 수 있는지 
+				if(file.type.match(/^text/g)) return true; // 미리보기 가능
+				else return false; // 미리보기 불가 
+		}
+
+		function mychange(){
+			var file = this.files[0];
+
+			if(!isPreview(file)){
+				alert('미리보기가 지원되지 않는 파일입니다.');
+				return ; //
+			}
+			var fr = new FileReader();
+
+			fr.addEventListener('error',function(){
+				document.querySelector('#msg').innerHTML = 'error 발생';
+			},false);
+
+			fr.addEventListener('load',function(){ // 파일이 메모리에 로드되면 
+					document.querySelector('#msg').innerHTML = '파일 로딩';
+					var contents = fr.result;
+					contents = contents.replace(/</g, '&lt;');
+					contents = contents.replace(/>/g, '&gt;');
+					contents = contents.replace(/\n/g, '<br/>');
+					document.querySelector('#filecontents').innerHTML = contents;
+			},false);
+
+			fr.addEventListener('loadstart',function(){
+				document.querySelector('#msg').innerHTML = '파일 로딩 시작';
+			},false);
+
+			fr.addEventListener('loadend',function(){
+				document.querySelector('#msg').innerHTML = '파일 로딩 끝';
+			},false);
+
+			fr.addEventListener('progress',function(){
+				document.querySelector('#msg').innerHTML = '진행중';
+			},false);
+
+			fr.readAsText(file);
+
+		}
+	</script>
+</head>
+<body>
+	<div>File : <input type="file" id="myfile"></div>
+	<div>Message : <output id="msg"></output></div>
+	<div id="filecontents">
+		
+	</div>
+</body>
+</html>
