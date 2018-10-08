@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Drag and Drop Demo</title>
+   <script type="text/javascript">
+    
+   </script>
+   <style type="text/css">
+      div{         
+         width:250px;  height:250px;
+         padding:10px;  border:1px solid black;
+         display: : inline;  /*한줄로 */
+         float:left;
+         margin : 20px;
+      }
+   </style>
+   <script type="text/javascript">
+         window.addEventListener('load',init);
+         function init(){
+            document.getElementById('myimage').addEventListener('dragstart',function(evt){
+                  evt.dataTransfer.setData('myflag',this.id); // image의 id를 setData로 적재 
+                  document.getElementById('original').style.border = '3px dotted red';
+            },false);
+
+//여기서부터 
+        var mydiv = document.getElementById('destination'); // div의 id를 mydiv에 저장 
+         mydiv.addEventListener('dragover', function(evt){ // div위에 무언가가 드래그 될 때 
+            evt.preventDefault(); // preventDefault 적용 
+         });
+
+         var mydiv1 = document.getElementById('original');
+         mydiv1.addEventListener('dragover',function(evt){
+            evt.preventDefault();
+         });
+
+            mydiv.addEventListener('drop', function(evt){ // div안에 무언가가 드롭될 때 
+            evt.preventDefault(); // preventDefault 적용 
+
+            var myid = evt.dataTransfer.getData('myflag'); // setData로 적재한 데이터(image의 id) 를 꺼내기 
+            var element = document.getElementById(myid);   //image Id
+            element.parentNode.removeChild(element); //body가 image를 지움
+            evt.target.appendChild(element); //div가 image를 자식으로
+
+            document.getElementById('original').style.border = '1px solid black'; 
+            document.getElementById('destination').style.border = '3px dotted red';
+
+            mydiv1.addEventListener('drop',function(evt){
+            evt.preventDefault();
+
+            var myid1 = evt.dataTransfer.getData('myflag'); // setData로 적재한 데이터(image의 id) 를 꺼내기 
+            var element = document.getElementById(myid);   //image Id
+            element.parentNode.removeChild(element); //body가 image를 지움
+            evt.target.appendChild(element); //div가 image를 자식으로
+
+            document.getElementById('original').style.border = '3px dotted red'; 
+            document.getElementById('destination').style.border = '1px solid black';
+            })
+
+
+         });
+
+//여기까지 
+
+         }
+   </script>
+</head>
+<body>
+   <h1>Drag and Drop Demo</h1>
+
+   <div id="original">
+   <img src="images/check.png" draggable="true" width="200" height="200" id='myimage'>
+   </div>  
+
+   <div id="destination">
+   </div>   
+
+
+</body>
+</html>

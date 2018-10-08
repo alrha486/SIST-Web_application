@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>Drag and Drop Demo</title>
+   <script type="text/javascript">
+    
+   </script>
+   <style type="text/css">
+      div{         
+         width:250px;  height:250px;
+         padding:10px;  border:1px solid black;
+         display: : inline;  /*한줄로 */
+         float:left;
+         margin : 20px;
+      }
+   </style>
+   <script type="text/javascript">
+         window.addEventListener('load',init);
+         function init(){
+            document.getElementById('myimage').addEventListener('dragstart',function(evt){ // image의 drag이벤트 시작
+                  evt.dataTransfer.dropEffect = 'move'; // 드래그로 이동시켰을 시 move하면 원래있떤 곳에서 삭제 
+                  evt.dataTransfer.setData('myflag',this.id); // image의 id를 setData로 적재 
+                  document.getElementById('original').style.border = '3px dotted red';
+            },false);
+
+
+            document.getElementById('destination').addEventListener('dragenter',function(evt){ // 목적지에 드래그가 들어오면
+                  this.style.border = "5px dotted blue";
+            });
+
+
+             document.getElementById('destination').addEventListener('dragleave',function(evt){ // 목적지에 드래그가 떠나면 
+                  this.style.border = "1px solid #000";
+            });
+
+
+            document.getElementById('destination').addEventListener('dragover',function(evt){ // 목적지에 드래그가 올라오면 
+                 evt.preventDefault();
+            });
+
+
+            document.getElementById('destination').addEventListener('drop',function(evt){  // 목적지에 드래그 후 drop 하면 
+                 evt.preventDefault();
+                  // if(this.stopPropagation) this.stopPropagation(); //             
+                      this.style.border = "1px solid #000";
+                      var tempid = evt.dataTransfer.getData('myflag');
+                      var obj = document.getElementById(tempid);
+                     obj.parentNode.removeChild(obj);
+                     this.appendChild(obj);                      
+            });
+
+            document.getElementById('myimage').addEventListener('dragend',function(evt){ // 이미지의 드래그이벤트가 끝나면 
+                 document.getElementById('original').style.border = '';
+                 document.getElementById('destination').style.border = '';
+            });
+         } // init()함수 끝
+   </script>
+</head>
+<body>
+   <h1>Drag and Drop Demo</h1>
+
+   <div id="original">
+   <img src="images/check.png" draggable="true" width="200" height="200" id='myimage'>
+   </div>  
+
+   <div id="destination">
+   </div>   
+
+</body>
+</html>
