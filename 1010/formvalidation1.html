@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>form validation demo</title>
+		<script>
+			window.addEventListener('load', function(){
+				var email = document.getElementById("mail"); // input  email 태그 
+				email.addEventListener('input', function(){ // 폼 안에 있는 입력요소 등에 변경이 되면 
+					if (email.validity.typeMismatch) {
+						email.setCustomValidity("Email 형식이 맞지 않습니다.");  return false;
+					} else {
+						email.setCustomValidity("");   return true;
+					}
+				},false); // input()끝 
+			},false); // load()끝 
+		</script>
+	</head>
+
+
+	<body>
+		<form>
+		  Email : <input type="email" id="mail" name="mail" required>
+		  <button>Submit</button>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Output Tag Demo</title>
+	<script type="text/javascript">
+			
+	</script>
+</head>
+<body>
+		<form name="myform" oninput="result.value=myrange.valueAsNumber+mynumber.valueAsNumber"> 
+																																				<!--valueAsNumber : 글자를 숫자로 바꾸기 -->
+			<input type="range" name="myrange" min="0" max="100" value="22"> + 
+			<input type="number" name="mynumber" min="0" max="100" value="50"> = 
+			<output name="result" for="myrange mynumber"></output>
+		</form>
+</body>
+</html>

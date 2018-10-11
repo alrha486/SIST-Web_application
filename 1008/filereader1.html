@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>FileReader Demo with Drag & Drop</title>
+
 	<style type="text/css">
 		div#mydiv{
 			width:200px; height:200px;
@@ -15,6 +16,7 @@
 			border : 1px solid #000;
 		}
 	</style>
+
 	<script>
 		window.addEventListener('load', init);
 		function init(){
@@ -84,11 +86,12 @@
 				fr.readAsText(file);
 			else if(file.type.match(/^image/g) || 
 					file.type.match(/^video/g) || file.type.match(/^audio/g)){ 
-				fr.readAsDataURL(file);
+				fr.readAsDataURL(file); // 이미지, 오디오, 비디오는 readAsText가 아닌 readAsDataURL
 			}
 			this.style.border = '';
 		}
 	</script>
+
 </head>
 <body>
 	<h3>박스안으로 파일을 드래그해 주세요. </h3>

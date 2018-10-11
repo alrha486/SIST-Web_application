@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Web Home Demo</title>
+	<script type="text/javascript">
+		window.addEventListener('load',init,false);
+		function init(){
+			document.myform.addEventListener('submit',function(evt){
+				evt.preventDefault(); // 기본이벤트 처리를 막는 preventDefault
+				// document.querySelector('#result').innerHTML = document.myform.birthday.value;
+				// document.querySelector('#result').innerHTML = document.myform.datetime.value;
+				// document.querySelector('#result').innerHTML = document.myform.mymonth.value;
+				// document.querySelector('#result').innerHTML = document.myform.myweek.value;
+				// document.querySelector('#result').innerHTML = document.myform.mytime.value;
+				document.querySelector('#result').innerHTML = document.myform.datetimeLocal.value;
+			},false);
+		}
+	</script>
+</head>
+<body>
+	<form name="myform">
+		<!-- Your Birth Date : <input type="date" name="birthday" min="1950-01-01" max="2050-12-31" required="required"> -->
+
+		<!-- Date Time : <input type="datetime" name="datetime"> -->
+
+		<!-- Month : <input type="month" name="mymonth" min="2010-01" max="2020-12"> -->
+
+		<!-- week : <input type="week" name="myweek" min="2016-W01" max="2020-W52"> -->
+
+		Date-Time :  <input type="datetime-local" name="datetimeLocal">
+
+		<!-- Time : <input type="time" name="mytime"> -->
+		<input type="submit" value="Send">
+	</form>
+	<output id="result"></output>
+</body>
+</html>
