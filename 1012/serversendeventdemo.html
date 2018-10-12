@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Server Sent Event Demo</title>
+	<script>
+		function start(){
+			var source = new EventSource("demo_send.php");
+			source.onmessage = function(event) {
+    			document.getElementById("result").innerHTML += event.data + "<br>";
+			};
+		}
+	</script>
+</head>
+<body>
+	<button type="button" onclick="start()">Start</button><br />
+	<output id="result"></output>
+</body>
+</html>

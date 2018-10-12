@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Canvas Demo</title>
+	<script>
+		window.onload = function(){
+			document.getElementsByTagName('button')[0].onclick = function(){
+				var mycanvas = document.getElementById("mycanvas");
+				var ctx = mycanvas.getContext('2d');
+				var jimin = document.images[0];
+				ctx.drawImage(jimin, 10,10);
+			}
+		}
+	</script>
+	<style>
+		canvas{
+			border : 1px solid #000;
+		}
+		button{
+			width:300px; height:300px;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/jimin.jpg">
+	<button type="button">Draw Image</button>
+	<canvas id="mycanvas" width="600" height="900"></canvas>
+</body>
+</html>

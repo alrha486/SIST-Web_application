@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Web Worker Demo</title>
+	<script>
+		var w = null;
+		function send(){
+			var num = document.getElementById('txtNum').value;
+			document.getElementById("end").innerHTML = num;
+			w = new Worker('woker.js');
+			w.postMessage(num);
+			w.onmessage = function(evt){
+				//console.log(evt.data);
+				document.getElementById('result').innerHTML = evt.data;
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<input type="text" id="txtNum">
+	<button type="button" id="btnSend" onclick="send()">Send</button><br />
+	<label>1부터 <output id="end"></output>까지의 합은 <output id="result"></output>.
+</body>
+</html>

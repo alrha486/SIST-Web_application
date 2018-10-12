@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Cross Document Messaging</title>
+	<script>
+		window.addEventListener('load', setup,false);
+		function setup(){
+			setInterval(send, 1000);
+		}
+		function send(){
+			var destination = document.getElementById('destination');
+			var now = new Date();
+			var message = now.toLocaleString();
+			document.domain = "http://www.example.com/1012";
+			destination.contentWindow.postMessage("Now is " + message, 'http://www.example.com/1012/destination.html');
+		}
+	</script>
+</head>
+<body>
+	<iframe src="destination.html" width="700" height="500" id="destination">
+</body>
+</html>
