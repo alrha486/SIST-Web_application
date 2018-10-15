@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Attribute Demo</title>
+	<script src="script/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			var str = "<ul>";
+			str += "<li>Source : " + $('img').attr('src') + '</li>';
+			str += "<li>넓이 : " + $('img').attr('width') + 'px</li>';
+			str += "<li>높이 : " + $('img').attr('height') + 'px</li>';
+			str += "</ul>";
+			$('output').html(str);
+			$('img').click(function(){
+				$(this).attr('src', 'images/yeonsu.jpg');
+				$(this).attr('width', '600px'); 
+				$(this).attr('height', '599px');
+			});
+		});
+	</script>
+</head>
+<body>
+	<img src="images/jimin.jpg" width="600" height="599"><br>
+	<output id="result"></output>
+</body>
+</html>

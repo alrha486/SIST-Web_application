@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<script src="script/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			var str = null;
+			$('div').click(function(){
+				str = $(this).css('color');
+				$('#result').text(str);
+			});
+			
+		});
+	</script>
+	<title>Jquery css demo</title>
+</head>
+<body>
+	<div style="color:red">RED</div>
+	<div style="color:blue">BLUE</div>
+	<div style="color:yellow">YELLOW</div>
+	<div style="color:gray">GRAY</div>
+
+	<output id="result"></output>
+</body>
+</html>

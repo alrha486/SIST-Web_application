@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Jquery Demo</title>
+	<style type="text/css">
+		.bg {
+		 background-color: red; 
+		 font-size : 2em;
+		}
+	</style>
+	<script src="script/jquery.js"></script>
+	<script>
+			$(function(){
+				$('<div/>', {
+					'text' : 'Click me',
+					'class' : 'bg',
+					click : function(){
+						$(this).toggleClass('bg'); // 클래스를 추가 or 제거  
+					}
+				}).appendTo('body'); // 어디에추가? body에 
+			});
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CSS DEMO</title>
+	<script src ="script/jquery.js"></script>
+	<script>
+		// $(document).ready(function(){
+		// 	if($('h1').hasClass('myclass'))	$('h1').removeClass('myclass');
+		// 	else $('h1').addClass('myclass');
+		// });
+		$(document).ready(function(){
+			$('h1').toggleClass('myclass');
+		});
+	</script>
+	<style type="text/css">
+		.myclass{
+			background-color: yellow; color : blue;
+			font-size : 2em; text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<h1>Hello, JQuery</h1>
+</body>
+</html>

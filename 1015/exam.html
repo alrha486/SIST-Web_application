@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>jQuery val() Demo</title>
+	<script src="script/jquery.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#btn').addClass('blue');
+			$('#btn').click(function(){
+				var str = $(this).val();
+				switch(str){
+					case "빨강" : 
+						$('body').css('background', 'red');
+						$('#btn').css({background : "blue", color:"red"});
+						$('#btn').val('파랑');  break;
+					case "파랑" :
+						$('body').css('background', 'blue');
+						$('#btn').css({background : "red", color:"blue"});
+						$('#btn').val('빨강'); break;
+				}
+			});
+		});
+	</script>
+	<style type="text/css">
+		body { background-color: blue; }
+		.red { background-color:blue;  color:red; }
+		.blue {background-color: red; color:blue;}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="빨강">
+</body>
+</html>

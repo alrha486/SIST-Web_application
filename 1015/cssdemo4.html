@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>CSS DEMO</title>
+	<style type="text/css">
+		div { width : 300px; height: 300px; background-color: yellow; }
+		.myevent{ background-color: cyan; font-size : 3em; }
+	</style>
+	<script>
+		// window.addEventListener('load',init);
+		// function init(){
+		// 	document.querySelector('#mydiv').addEventListener('mouseover',over);
+		// 	document.querySelector('#mydiv').addEventListener('mouseleave',leave);
+		// }
+		// function over(){
+		// 	document.querySelector('#mydiv').style.backgroundColor = 'cyan';
+		// 	document.querySelector('#mydiv').style.fontSize = '3em';
+		// }
+		// function leave(){
+		// 	document.querySelector('#mydiv').style.backgroundColor = 'yellow';
+		// 	document.querySelector('#mydiv').style.fontSize = '1em';
+
+		// }
+		$function({
+
+			$('div').mouseover(function(){
+					$(this).addClass('myevent');
+			});
+			$('div').mouseout(function(){
+					$(this).removeClass('myevent');
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<div id = "mydiv">
+		여기에 마우스를 올려보세요
+	</div>
+</body>
+</html>
