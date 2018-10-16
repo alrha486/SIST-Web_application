@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>jQuery Traversing Demo</title>
+	<script src="script/jquery.min.js"></script>
+	<script>
+		$().ready(function(){
+			$('#sub > p').closest('div').css('color', 'red');
+		});
+	</script>
+	</head>
+	<body>
+		<h1>closest() Demo</h1>
+		<div id='container'>
+			<p>Container's P</p>
+			<div id='sub'>
+				<p>Sub's P</p>
+			</div>
+		</div>
+	</body>
+</html>
+
+
+

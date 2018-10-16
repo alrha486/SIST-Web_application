@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>jQuery Manipulation Demo</title>
+	<script src="script/jquery.min.js"></script>
+	<script>
+		$().ready(function(){
+			var firstStr = $('#first').html();   //<p>여기는 first div</p>
+			$('#second').html(firstStr);
+		});
+	</script>
+	</head>
+	<body>
+		<div id="first">
+			<p>여기는 first div</p>
+		</div>
+		<div id="second">
+			<p>여기는 second div</p>
+			<p><img src="images/jimin.png" width="200" height="200"></p>
+		</div>
+	</body>
+</html>
