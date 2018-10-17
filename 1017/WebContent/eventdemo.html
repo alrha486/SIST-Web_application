@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery Event Demo</title>
+		<script src="script/jquery.1.8.3.js"></script>
+		<script>
+			$(function(){
+				$('button').toggle(function(){
+					$('img').attr('src', 'images/banana.jpg').attr('width', '200px').attr('height', '200px');
+				}, function(){
+					$('img').attr('src', 'images/grape.jpg').attr('width', '200px').attr('height', '200px');
+				}, function(){
+					$('img').attr('src', 'images/lemon.jpg').attr('width', '200px').attr('height', '200px');
+				}, function(){
+					$('img').attr('src', 'images/apple.jpg').attr('width', '200px').attr('height', '200px');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div><button>과일 이미지 변경</button></div>
+		<img src='images/apple.jpg' width="200" height="200" />
+	</body>
+</html>
+
+
+
+
+
