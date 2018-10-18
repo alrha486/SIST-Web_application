@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax Demo</title>
+<script>
+	window.addEventListener('load',setup);
+	function setup(){
+		document.getElementById('txtName').addEventListener('change',myclick);
+	}
+	var obj = null;
+	function myclick(){
+		obj = new XMLHttpRequest(); // 비동기식 통신 객체 생성 (ajax)
+		obj.open('GET','sungjuk_utf8.json',true); // ajax는 true가 기본값(비동기)/ false : 동기 
+		obj.onreadystatechange = mycallback; // 자신의 상태가 변경될 때
+		obj.send(null); 
+	}
+	function mycallback(){
+		// if(obj.readyState == 4 && obj.status == 200){ // 4번은 서버로 부터 대답을 받은 것
+		// 	document.getElementById('result').innerHTML =  obj.responseText;	
+		// }
+		alert(obj.readyState);
+	}
+</script>
+</head>
+<body>
+	<p>
+		<input type="text" id="txtName">
+	</p>
+	<p>
+		<output id="result"></output>
+	</p>
+</body>
+</html>

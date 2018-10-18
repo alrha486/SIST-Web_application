@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Event Demo</title>
+<style type="text/css">
+div {
+	width: 300px;
+	height: 300px;
+	background-color: red;
+	display: none;
+}
+</style>
+<script src="script/jquery.min.js"></script>
+<script>
+	$(function() {
+		$('button').click(function() {
+			$('#container').show(2000, function() { // 시간은 fast(0.2초), slow(0.6초), nomal(0.4초), millisecond도 가능
+				$('#container').css('background-color', 'yellow');
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>Effect show()</h1>
+	<p>
+		<button>Show</button>
+	</p>
+	<div id="container"></div>
+</body>
+</html>

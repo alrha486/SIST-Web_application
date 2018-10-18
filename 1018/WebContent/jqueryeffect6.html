@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery Event Demo</title>
+<style type="text/css">
+img {
+	display: none;
+}
+</style>
+<script src="script/jquery.min.js"></script>
+<script>
+	$(function() {
+		$('button:eq(0)').click(function() {
+			$('img').slideUp(2000);
+		});
+		$('button:eq(1)').click(function() {
+			$('img').slideDown(2000);
+		});
+	});
+</script>
+</head>
+<body>
+	<h1>SlideUp/SlideDown</h1>
+	<p>
+		<button>SlideUp</button>
+		<button>SlideDown</button>
+	</p>
+	<img src="images/apple.jpg" />
+</body>
+</html>
